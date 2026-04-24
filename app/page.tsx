@@ -70,7 +70,7 @@ export default function Home() {
         <RundownSection />
         <RSVPSection />
         <GuestbookSection />
-        <GiftSection />
+        {/* <GiftSection /> */}
         <FooterSection />
       </div>
 

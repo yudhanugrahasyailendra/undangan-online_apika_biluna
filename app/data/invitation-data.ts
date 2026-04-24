@@ -25,7 +25,7 @@ export const invitationData = {
     "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=75&fit=crop",
   ],
   videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
-  audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+  audioSrc: "/sounds/Cinematic Aqiqah of Magika.mp3",
   bankName: "Bank BCA",
   accountNumber: "1234567890",
   accountName: "Nama Penerima",
