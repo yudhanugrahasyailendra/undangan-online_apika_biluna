@@ -26,9 +26,9 @@ export const invitationData = {
   ],
   videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
   audioSrc: "/sounds/Sheila on 7 - Temani Aku.mp3",
-  bankName: "Bank BCA",
-  accountNumber: "1234567890",
-  accountName: "Nama Penerima",
+  // bankName: "Bank BCA",
+  // accountNumber: "1234567890",
+  // accountName: "Nama Penerima",
   giftAddress: "Jl. Contoh Pengiriman Hadiah No. 45",
   openingMessage:
     "Dengan penuh rasa syukur atas kelahiran putri kami, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara sukuran.",

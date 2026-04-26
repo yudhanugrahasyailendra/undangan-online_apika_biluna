@@ -11,7 +11,7 @@ import VideoSection from './components/VideoSection';
 import RundownSection from './components/RundownSection';
 import RSVPSection from './components/RSVPSection';
 import GuestbookSection from './components/GuestbookSection';
-import GiftSection from './components/GiftSection';
+// import GiftSection from './components/GiftSection';
 import FooterSection from './components/FooterSection';
 import MusicButton from './components/MusicButton';
 import BottomNav from './components/BottomNav';

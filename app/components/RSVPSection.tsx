@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useToast } from './ToastProvider';
 
 export default function RSVPSection() {
@@ -9,6 +9,14 @@ export default function RSVPSection() {
   const [guestCount, setGuestCount] = useState(1);
   const [status, setStatus] = useState('hadir');
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('to');
+    if (guestName) {
+      setName(decodeURIComponent(guestName));
+    }
+  }, []);
 
   const changeCount = useCallback((delta: number) => {
     setGuestCount(prev => Math.max(1, Math.min(10, prev + delta)));

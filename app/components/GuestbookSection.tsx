@@ -33,6 +33,14 @@ export default function GuestbookSection() {
     // Listen for updates from RSVP section
     const handler = () => loadGuestbook();
     window.addEventListener('guestbook-updated', handler);
+
+    // Pre-fill name from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('to');
+    if (guestName) {
+      setGbName(decodeURIComponent(guestName));
+    }
+
     return () => window.removeEventListener('guestbook-updated', handler);
   }, [loadGuestbook]);
 
