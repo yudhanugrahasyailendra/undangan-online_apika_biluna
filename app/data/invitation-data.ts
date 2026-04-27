@@ -24,7 +24,7 @@ export const invitationData = {
     "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&q=75&fit=crop",
     "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=75&fit=crop",
   ],
-  videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
+  videoSrc: "https://res.cloudinary.com/dzcx3jbyt/video/upload/v1777302586/apika_biluna_2_yc1uxi.mp4",
   audioSrc: "/sounds/Sheila on 7 - Temani Aku.mp3",
   // bankName: "Bank BCA",
   // accountNumber: "1234567890",
