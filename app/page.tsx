@@ -67,9 +67,9 @@ export default function Home() {
         <GratitudeSection />
         <GallerySection />
         <VideoSection />
-        <RundownSection />
-        <RSVPSection />
-        <GuestbookSection />
+        {/* <RundownSection />
+        <RSVPSection /> */}
+        {/* <GuestbookSection /> */}
         {/* <GiftSection /> */}
         <FooterSection />
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { invitationData } from '../data/invitation-data';
 
 export default function MusicButton({ visible }: { visible: boolean }) {
@@ -27,10 +27,23 @@ export default function MusicButton({ visible }: { visible: boolean }) {
     audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
   }, []);
 
-  // Expose tryPlay to parent
-  if (typeof window !== 'undefined') {
-    (window as unknown as Record<string, unknown>).__tryPlayMusic = tryPlay;
-  }
+  const pauseMusic = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.pause();
+    setPlaying(false);
+  }, []);
+
+  useEffect(() => {
+    const win = window as unknown as Record<string, unknown>;
+    win.__tryPlayMusic = tryPlay;
+    win.__pauseMusic = pauseMusic;
+
+    return () => {
+      delete win.__tryPlayMusic;
+      delete win.__pauseMusic;
+    };
+  }, [tryPlay, pauseMusic]);
 
   return (
     <>

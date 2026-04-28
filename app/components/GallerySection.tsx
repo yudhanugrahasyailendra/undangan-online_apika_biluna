@@ -50,13 +50,22 @@ export default function GallerySection() {
           Momen<br /><em style={{ fontStyle: 'italic', color: 'var(--mauve)' }}>Berharga</em>
         </h2>
         <div className="section-divider reveal"></div>
+        <p className="gallery-subtitle reveal reveal-delay-1">
+          Sentuh foto untuk melihat lebih jelas
+        </p>
 
-        <div className="gallery-grid reveal reveal-delay-1">
+        <div className="gallery-grid reveal reveal-delay-2">
           {images.map((src, i) => (
-            <div key={i} className="gallery-item" onClick={() => openLightbox(i)}>
+            <button
+              key={i}
+              type="button"
+              className="gallery-item"
+              onClick={() => openLightbox(i)}
+              aria-label={`Buka foto ${i + 1}`}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={src} alt={`Foto ${i + 1}`} loading="lazy" />
-            </div>
+            </button>
           ))}
         </div>
       </section>
@@ -74,10 +83,15 @@ export default function GallerySection() {
           if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
         }}
       >
-        <button className="lightbox-close" onClick={closeLightbox}>
+        <button type="button" className="lightbox-close" onClick={closeLightbox} aria-label="Tutup galeri">
           <i className="fa-solid fa-xmark"></i>
         </button>
-        <button className="lightbox-prev" onClick={(e) => { e.stopPropagation(); navigate(-1); }}>
+        <button
+          type="button"
+          className="lightbox-prev"
+          onClick={(e) => { e.stopPropagation(); navigate(-1); }}
+          aria-label="Foto sebelumnya"
+        >
           <i className="fa-solid fa-chevron-left"></i>
         </button>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -87,7 +101,12 @@ export default function GallerySection() {
           alt=""
           style={{ ...imgStyle, transition: 'opacity 0.3s, transform 0.3s' }}
         />
-        <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); navigate(1); }}>
+        <button
+          type="button"
+          className="lightbox-next"
+          onClick={(e) => { e.stopPropagation(); navigate(1); }}
+          aria-label="Foto selanjutnya"
+        >
           <i className="fa-solid fa-chevron-right"></i>
         </button>
         <p className="lightbox-counter">{currentIdx + 1} / {images.length}</p>

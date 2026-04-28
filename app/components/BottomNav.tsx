@@ -8,8 +8,8 @@ const navItems = [
   { icon: 'fa-regular fa-calendar-days', label: 'Acara' },
   { icon: 'fa-regular fa-images', label: 'Galeri' },
   { icon: 'fa-regular fa-circle-play', label: 'Video' },
-  { icon: 'fa-regular fa-envelope-open', label: 'RSVP' },
-  { icon: 'fa-solid fa-gift', label: 'Gift' },
+  // { icon: 'fa-regular fa-envelope-open', label: 'RSVP' },
+  // { icon: 'fa-solid fa-gift', label: 'Gift' },
 ];
 
 export default function BottomNav({ visible }: { visible: boolean }) {
