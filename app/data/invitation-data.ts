@@ -54,24 +54,24 @@ export const invitationData = {
 };
 
 export const defaultGuestEntries = [
-  {
-    name: "Keluarga Bapak Hasan",
-    message:
-      "Selamat atas kelahiran putri cantiknya. Semoga menjadi anak yang sholehah dan membahagiakan orang tua. Aamiin 🌸",
-    time: "2026-04-01T09:00:00",
-  },
-  {
-    name: "Bunda Sari",
-    message:
-      "Masha Allah, bayi yang cantik! Doa terbaik untuk keluarga kecil yang bahagia ini 💕",
-    time: "2026-04-02T14:30:00",
-  },
-  {
-    name: "Pak Udin & Keluarga",
-    message:
-      "Semoga APIKA BILUNA tumbuh sehat, cerdas, dan menjadi kebanggaan keluarga. Barakallahu fikum 🤲",
-    time: "2026-04-03T08:15:00",
-  },
+  // {
+  //   name: "Keluarga Bapak Hasan",
+  //   message:
+  //     "Selamat atas kelahiran putri cantiknya. Semoga menjadi anak yang sholehah dan membahagiakan orang tua. Aamiin 🌸",
+  //   time: "2026-04-01T09:00:00",
+  // },
+  // {
+  //   name: "Bunda Sari",
+  //   message:
+  //     "Masha Allah, bayi yang cantik! Doa terbaik untuk keluarga kecil yang bahagia ini 💕",
+  //   time: "2026-04-02T14:30:00",
+  // },
+  // {
+  //   name: "Pak Udin & Keluarga",
+  //   message:
+  //     "Semoga APIKA BILUNA tumbuh sehat, cerdas, dan menjadi kebanggaan keluarga. Barakallahu fikum 🤲",
+  //   time: "2026-04-03T08:15:00",
+  // },
 ];
 
 export const rundownItems = [
