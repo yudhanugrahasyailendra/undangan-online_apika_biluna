@@ -1728,13 +1728,14 @@ section {
 @media (max-width: 640px) {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-    max-width: 420px;
+    gap: 10px;
+    max-width: 440px;
     grid-auto-flow: row;
-    padding: 0 2px;
+    padding: 0;
   }
 
   .gallery-item,
+  .gallery-item:first-child,
   .gallery-item:nth-child(5),
   .gallery-item:nth-child(10),
   .gallery-item:nth-child(15),
@@ -1745,9 +1746,16 @@ section {
     aspect-ratio: 1;
   }
 
-  .gallery-item:first-child {
-    grid-column: span 2;
-    aspect-ratio: 2 / 1.2;
+  /* Mobile: hindari efek hover yang bikin layout terasa "loncat" */
+  .gallery-item:hover,
+  .gallery-item:active {
+    transform: none;
+    box-shadow: 0 8px 20px rgba(67, 49, 60, 0.1);
+  }
+
+  .gallery-item:hover img,
+  .gallery-item:active img {
+    transform: none;
   }
 }
 
