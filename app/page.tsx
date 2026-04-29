@@ -10,7 +10,7 @@ import GallerySection from './components/GallerySection';
 import VideoSection from './components/VideoSection';
 import RundownSection from './components/RundownSection';
 import RSVPSection from './components/RSVPSection';
-import GuestbookSection from './components/GuestbookSection';
+import TestimonialSection from './components/TestimonialSection';
 // import GiftSection from './components/GiftSection';
 import FooterSection from './components/FooterSection';
 import MusicButton from './components/MusicButton';
@@ -69,7 +69,7 @@ export default function Home() {
         <VideoSection />
         {/* <RundownSection />
         <RSVPSection /> */}
-        {/* <GuestbookSection /> */}
+        <TestimonialSection />
         {/* <GiftSection /> */}
         <FooterSection />
       </div>

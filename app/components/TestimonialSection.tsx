@@ -17,7 +17,7 @@ function formatTime(isoStr: string) {
   return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
 
-export default function GuestbookSection() {
+export default function TestimonialSection() {
   const { showToast } = useToast();
   const [entries, setEntries] = useState<GuestEntry[]>([]);
   const [gbName, setGbName] = useState('');
@@ -46,7 +46,7 @@ export default function GuestbookSection() {
 
   const addGuestEntry = useCallback(() => {
     if (!gbName.trim() || !gbMsg.trim()) {
-      showToast('⚠️ Mohon isi nama dan ucapan Anda', 'fa-triangle-exclamation');
+      showToast('⚠️ Mohon isi nama dan testimoni Anda', 'fa-triangle-exclamation');
       return;
     }
 
@@ -62,14 +62,14 @@ export default function GuestbookSection() {
     setGbName('');
     setGbMsg('');
     loadGuestbook();
-    showToast('🌸 Ucapan Anda telah ditambahkan, terima kasih!', 'fa-heart');
+    showToast('🌸 Testimoni Anda telah ditambahkan, terima kasih!', 'fa-heart');
   }, [gbName, gbMsg, showToast, loadGuestbook]);
 
   return (
     <section id="ucapan">
-      <div className="section-tag reveal">❈ Ucapan ❈</div>
+      <div className="section-tag reveal">❈ Testimoni ❈</div>
       <h2 className="section-title reveal">
-        Buku<br /><em style={{ fontStyle: 'italic', color: 'var(--mauve)' }}>Tamu</em>
+        Sapa<br /><em style={{ fontStyle: 'italic', color: 'var(--mauve)' }}>Hangat</em>
       </h2>
       <div className="section-divider reveal"></div>
 
@@ -87,17 +87,17 @@ export default function GuestbookSection() {
           />
         </div>
         <div className="form-group">
-          <label className="form-label" htmlFor="gb-msg">Ucapan &amp; Doa</label>
+          <label className="form-label" htmlFor="gb-msg">Testimoni &amp; Doa</label>
           <textarea
             className="form-textarea"
             id="gb-msg"
-            placeholder="Tuliskan doa terbaikmu..."
+            placeholder="Tuliskan testimoni terbaikmu..."
             value={gbMsg}
             onChange={(e) => setGbMsg(e.target.value)}
           ></textarea>
         </div>
         <button className="btn-primary" onClick={addGuestEntry} style={{ width: '100%', justifyContent: 'center' }}>
-          <i className="fa-regular fa-paper-plane"></i> &nbsp;Kirim Ucapan
+          <i className="fa-regular fa-paper-plane"></i> &nbsp;Kirim Testimoni
         </button>
       </div>
 

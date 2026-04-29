@@ -50,6 +50,10 @@ export default function EventSection() {
             <i className="fa-solid fa-map-location-dot"></i>
             Buka Lokasi di Google Maps
           </a>
+          <p className="event-note">
+            <span className="event-note-label">Catatan</span>
+            <span className="event-note-text">{invitationData.notes}</span>
+          </p>
         </div>
       </div>
     </section>

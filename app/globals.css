@@ -225,21 +225,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .cover-hero-frame {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 50%;
   margin: 0 auto 24px;
   position: relative;
+  overflow: hidden;
 }
 
 .cover-hero-frame::before {
   content: '';
   position: absolute;
-  inset: -6px;
+  inset: -4px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--rose), var(--champagne), var(--petal));
+  background: linear-gradient(145deg, rgba(232, 160, 184, 0.75), rgba(240, 196, 212, 0.55));
   z-index: 0;
-  animation: ring-pulse 3s ease-in-out infinite;
+  filter: blur(0.2px);
+  animation: cover-ring-breathe 4.2s ease-in-out infinite;
 }
 
 @keyframes ring-pulse {
@@ -252,9 +255,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   position: relative;
   z-index: 1;
   border: 4px solid var(--warm-white);
+}
+
+@keyframes cover-ring-breathe {
+  0%, 100% { opacity: 0.72; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.015); }
 }
 
 .cover-parent-info {
@@ -408,11 +417,22 @@ section {
 
 .hero-baby-frame {
   width: 200px;
-  height: 220px;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 50%;
   margin: 0 auto 28px;
   position: relative;
   overflow: hidden;
+}
+
+.hero-baby-frame::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(from 150deg, var(--rose), var(--champagne), var(--petal), var(--rose));
+  z-index: 0;
+  animation: hero-ring-float 3s ease-in-out infinite;
 }
 
 .hero-baby-frame::after {
@@ -421,29 +441,43 @@ section {
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(180deg, transparent 50%, rgba(249, 232, 238, 0.4) 100%);
+  z-index: 2;
 }
 
 .hero-baby-frame img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center top;
+  border-radius: 50%;
+  border: 4px solid var(--warm-white);
+  position: relative;
+  z-index: 1;
 }
 
 .hero-badge {
   position: absolute;
-  bottom: -10px;
-  right: -10px;
-  background: white;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #fff 0%, #fff7fb 100%);
   border-radius: 50px;
-  padding: 6px 14px;
+  padding: 7px 22px;
+  min-width: 120px;
   font-size: 11px;
   font-weight: 500;
   color: var(--mauve);
-  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(232, 160, 184, 0.28);
+  box-shadow: 0 8px 20px rgba(171, 107, 134, 0.22);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   z-index: 2;
+}
+
+@keyframes hero-ring-float {
+  0%, 100% { opacity: 0.82; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
 }
 
 .hero-top-label {
@@ -689,6 +723,32 @@ section {
   width: 100%;
 }
 
+.event-note {
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  color: var(--text-light);
+  line-height: 1.55;
+  font-size: 15px;
+  text-align: center;
+}
+
+.event-note-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--mauve);
+  margin-bottom: 4px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.event-note-text {
+  display: block;
+  color: var(--text-dark);
+  font-style: italic;
+}
+
 /* ============================================================
    PESAN SYUKUR
 ============================================================ */
@@ -781,9 +841,11 @@ section {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 6px;
-  max-width: 720px;
+  grid-auto-flow: dense;
+  gap: 10px;
+  max-width: 760px;
   margin: 0 auto;
+  padding: 0 4px;
 }
 
 .gallery-subtitle {
@@ -799,14 +861,14 @@ section {
   display: block;
   box-sizing: border-box;
   grid-column: span 2;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   position: relative;
   background: var(--sand);
   aspect-ratio: 1;
   border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 8px 20px rgba(67, 49, 60, 0.1);
+  box-shadow: 0 10px 24px rgba(67, 49, 60, 0.1);
   transform: translateY(0);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -816,13 +878,16 @@ section {
   aspect-ratio: 2/1.5;
 }
 
-.gallery-item:nth-child(5) {
+.gallery-item:nth-child(5),
+.gallery-item:nth-child(10),
+.gallery-item:nth-child(15) {
   grid-column: span 4;
   aspect-ratio: 2/1.5;
 }
 
 .gallery-item:nth-child(8n + 2),
-.gallery-item:nth-child(8n + 6) {
+.gallery-item:nth-child(8n + 6),
+.gallery-item:nth-child(5n + 3) {
   aspect-ratio: 0.86;
 }
 
@@ -847,7 +912,7 @@ section {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(180, 84, 122, 0.03) 25%, rgba(24, 15, 20, 0.3) 100%);
-  opacity: 0.9;
+  opacity: 0.78;
   transition: opacity 0.3s ease;
 }
 
@@ -1632,7 +1697,27 @@ section {
 ============================================================ */
 @media (min-width: 640px) {
   section { padding: 80px 40px; }
-  .gallery-grid { gap: 8px; }
+  .gallery-grid { gap: 10px; }
+}
+
+@media (min-width: 640px) and (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 620px;
+  }
+
+  .gallery-item {
+    grid-column: span 2;
+    aspect-ratio: 1;
+  }
+
+  .gallery-item:first-child,
+  .gallery-item:nth-child(5),
+  .gallery-item:nth-child(10),
+  .gallery-item:nth-child(15) {
+    grid-column: span 4;
+    aspect-ratio: 2 / 1.2;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1643,14 +1728,26 @@ section {
 @media (max-width: 640px) {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
     max-width: 420px;
+    grid-auto-flow: row;
+    padding: 0 2px;
   }
 
   .gallery-item,
-  .gallery-item:first-child,
-  .gallery-item:nth-child(5) {
+  .gallery-item:nth-child(5),
+  .gallery-item:nth-child(10),
+  .gallery-item:nth-child(15),
+  .gallery-item:nth-child(8n + 2),
+  .gallery-item:nth-child(8n + 6),
+  .gallery-item:nth-child(5n + 3) {
     grid-column: span 1;
     aspect-ratio: 1;
+  }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+    aspect-ratio: 2 / 1.2;
   }
 }
 
